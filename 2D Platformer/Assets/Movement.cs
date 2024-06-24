@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 
     public float speed;
     private float xInput;
+    private bool jump = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,11 @@ public class Movement : MonoBehaviour
     void Update()
     {
         xInput = Input.GetAxis("Horizontal");
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+        }
 
         rb.velocity = new Vector2(xInput * speed, rb.velocity.y);
     }
