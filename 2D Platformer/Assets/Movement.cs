@@ -5,27 +5,38 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public Rigidbody2D rb;
-
     public float speed;
-    private float xInput;
-    private bool jump = false;
+    public float jump;
+    private float xMovement;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool grounded;
 
     // Update is called once per frame
     void Update()
     {
-        xInput = Input.GetAxis("Horizontal");
+        xMovement = Input.GetAxis("Horizontal");
 
-        if(Input.GetButtonDown("Jump"))
+        rb.velocity = new Vector2(xMovement * speed, rb.velocity.y);
+
+        if(Input.GetButtonDown("Jump") && grounded == true)
         {
-            jump = true;
+            rb.AddForce(new Vector2(rb.velocity.x, jump));
         }
+    }
 
-        rb.velocity = new Vector2(xInput * speed, rb.velocity.y);
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            grounded = false;
+        }
     }
 }
