@@ -10025,8 +10025,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 4.201061
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -10056,7 +10056,7 @@ MonoBehaviour:
   rb: {fileID: 1388190119}
   animator: {fileID: 1388190121}
   speed: 15
-  jumpForce: 13
+  jumpForce: 15
   grounded: 0
 --- !u!95 &1388190121
 Animator:

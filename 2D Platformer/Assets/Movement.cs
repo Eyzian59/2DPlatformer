@@ -16,8 +16,12 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump") && grounded == true)
         {
-            rb.velocity = Vector2.up * jumpForce;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetBool("isJumping", true);
+        }
+        if(Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
     }
 
