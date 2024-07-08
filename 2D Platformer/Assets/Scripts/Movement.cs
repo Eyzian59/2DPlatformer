@@ -10,10 +10,14 @@ public class Movement : MonoBehaviour
     public float jumpForce;
     private float xMovement;
     public bool grounded;
+    private bool isFacingRight = true;
 
     // Update is called once per frame
     void Update()
     {
+        xMovement = Input.GetAxis("Horizontal");
+        Flip();
+
         if(Input.GetButtonDown("Jump") && grounded == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -27,11 +31,20 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        xMovement = Input.GetAxis("Horizontal");
-
         animator.SetFloat("Speed", Mathf.Abs(xMovement));
 
         rb.velocity = new Vector2(xMovement * speed, rb.velocity.y);
+    }
+
+    private void Flip()
+    {
+        if((isFacingRight && xMovement < 0f) || (!isFacingRight && xMovement > 0f))
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)

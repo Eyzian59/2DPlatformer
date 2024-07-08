@@ -9394,7 +9394,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0, z: -10}
+  m_LocalPosition: {x: -0.0000009536743, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9893,8 +9893,8 @@ GameObject:
   - component: {fileID: 1388190116}
   - component: {fileID: 1388190119}
   - component: {fileID: 1388190118}
-  - component: {fileID: 1388190120}
   - component: {fileID: 1388190121}
+  - component: {fileID: 1388190123}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -9978,7 +9978,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1388190115}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf977942bd780904bb903a7011d5f6a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10025,11 +10025,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 4.201061
+  m_UseAutoMass: 0
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -10038,26 +10038,9 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 1
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1388190120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388190115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 046a33e74f8657b468a0e4886c35275c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1388190119}
-  animator: {fileID: 1388190121}
-  speed: 15
-  jumpForce: 15
-  grounded: 0
 --- !u!95 &1388190121
 Animator:
   serializedVersion: 5
@@ -10079,6 +10062,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1388190123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388190115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046a33e74f8657b468a0e4886c35275c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1388190119}
+  animator: {fileID: 1388190121}
+  speed: 15
+  jumpForce: 15
+  grounded: 0
 --- !u!1 &1466473438
 GameObject:
   m_ObjectHideFlags: 0
