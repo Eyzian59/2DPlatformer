@@ -5,12 +5,14 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Collider2D coll;
     public Animator animator;
     public float speed;
     public float jumpForce;
     private float xMovement;
     public bool grounded;
     private bool isFacingRight = true;
+    public int cherries = 0;
 
     // Update is called once per frame
     void Update()
@@ -61,6 +63,15 @@ public class Movement : MonoBehaviour
         if(other.gameObject.CompareTag("Ground"))
         {
             grounded = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Items")
+        {
+            Destroy(other.gameObject);
+            cherries += 1;
         }
     }
 }
